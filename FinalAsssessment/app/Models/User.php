@@ -58,4 +58,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
+
+    //Letting the role table know about the eloquent relationship between user and roles
+    public function roles(){
+        return $this->belongsToMany('App\Models\Role');
+    }
 }
