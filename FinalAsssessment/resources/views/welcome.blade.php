@@ -2,8 +2,10 @@
 @section('content')
 
 <div class="single-item">
-  <div><h3><img src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
+
+  
+  <div><h3><img class="w-full" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
+  <div><h3><img class="w-full" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
 </div>
 <div class="px-5 mb-20 mt-20">
   <div class="md:flex px-10 md:space-x-10">
@@ -47,7 +49,7 @@
   </div>
   <div class="w-full md:w-3/4 h-96">
     <h1 class="decoration-purple mt-4 flex uppercase font-bold text-3xl justify-center items-center hover:underline decoration-wavy">Books</h1>
-  <div class="responsive">
+  <div class="responsive ml-10">
   <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
   <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThNfYEf7Fm3_UpCQr8HHWOIG3YKMnCOSdf6Q&usqp=CAU"></h3></div>
   <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
@@ -65,9 +67,14 @@
 
   <div class="w-full md:w-3/4 h-96">
     <h1 class="decoration-purple mt-4 flex uppercase font-bold text-3xl justify-center items-center hover:underline decoration-wavy">Books</h1>
-  <div class="responsive">
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThNfYEf7Fm3_UpCQr8HHWOIG3YKMnCOSdf6Q&usqp=CAU"></h3></div>
+  <div class="responsive mr-10">
+  <div><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg">
+  <button class="absolute bg-black text-white">Button</button>
+</div>
+<div class="relative">
+  <img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg">
+  <button class="absolute" style="bottom: -30px" >Button</button>
+</div>
   <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
   <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
   <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
@@ -76,18 +83,18 @@
 </div>
   </div>
   <div class="hidden mb-2 md:mb:0 md:mt-0 mt-10 md:w-full md:w-1/4 md:flex md:bg-gray-400 p-8 md:text-center md:text-gray-700 h-full">
-  2
+  1
   </div>
 </div>
 <div class="h-96 mb-20 bg-[url('https://image.shutterstock.com/image-vector/2022-happy-new-year-banner-260nw-1923111599.jpg')] overflow-hidden shadow-lg bg-no-repeat bg-cover ml-20 mr-20">
 </div>
 <div class="md:flex h-96 md:mb-20 mb-10 px-8">
 <div class="hidden md:flex mb-2 md:mb:0 md:mt-0 mt-10 w-full md:w-1/4 bg-gray-400 p-8 text-center text-gray-700">
-  2
+  3
   </div>
   <div class="w-full md:w-3/4" style="height: 360px">
     <h1 class="mt-4 flex uppercase font-bold text-3xl justify-center items-center hover:underline decoration-wavy decoration-purple">Books</h1>
-  <div class="responsive">
+  <div class="responsive ml-10">
   <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
   <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThNfYEf7Fm3_UpCQr8HHWOIG3YKMnCOSdf6Q&usqp=CAU"></h3></div>
   <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
@@ -99,6 +106,7 @@
   </div>
   
 </div>
+
 <script>
   $('.single-item').slick({
     autoplay:true,
@@ -111,6 +119,7 @@
     speed: 100,
     slidesToShow: 3,
     slidesToScroll:1,
+    
     responsive: [
     {
       breakpoint: 1024,
@@ -143,4 +152,5 @@
   });
 
   </script>
+
 @endsection

@@ -54,15 +54,20 @@
         </div>
         
                 </div>
+                <form method="POST" action="/newsletter">
+                    @csrf
                 <div class="flex flex-col">
                     <span class="uppercase mt-4 md:mt-0 mb-5">Newsletter</span>
                     <div class="flex items-center border-b border-faded py-2">
-                    <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="email" placeholder="Jane Doe" aria-label="Full name"">
+                    <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="email" placeholder="you@email.com" id="email" name="email" aria-label="Email">
                 </div>
-                <a href="#" class="mt-5 bg-purple hover:bg-faded text-white text-center py-3.5 px-2 rounded-full uppercase">
+                <button type="submit" class="mt-5 bg-purple hover:bg-faded text-white text-center py-3.5 px-2 rounded-full uppercase" >
+                <a>
                     Subscribe
                 </a>
+            </button>
             </div>
+                </form>
             </div>
         </div>
     </div>

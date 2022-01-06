@@ -10,6 +10,7 @@
    @include('nav')
    
   @yield('content')
+  @include('flash-message')
 
    @include('footer')
 

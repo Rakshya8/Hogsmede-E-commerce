@@ -1,14 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-.slick-prev {
-    left: 3% !important;
-    z-index: 1;
-  }
-  .slick-next {
-    right: 3% !important;
-    z-index: 1;
-  }
-img{
-    width: 100%;
-}  
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+.owl-theme .owl-controls .owl-page.active span {
+    background-color: red;
+    border: 2px solid red;
+}
+
+.owl-theme .owl-controls .owl-page span {
+    border: 2px solid red;
+}

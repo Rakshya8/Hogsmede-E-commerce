@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>  
 <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
 </head>
-<body>
+<body class="overflow-x-hidden">
   <div class="bg-white shadow-md h-24">
     <header class="container mx-w-7xl flex flex-wrap items-center  justify-between">
       <div class="flex-shrink-0 flex items-center text-sec hover:text-pri cursor-pointer transition mt-0 mb-0">
@@ -42,7 +42,7 @@
           </svg>
           </li>
           <li class="inline-block items-center mr-4">
-            <button class="bg-transparent hover:bg-purple text-purple font-semibold hover:text-white py-2 px-4 border-2 border-purple hover:border-transparent rounded">Login</button>      
+            <button class="bg-transparent hover:bg-purple text-purple font-semibold hover:text-white py-2 px-4 border-2 border-purple hover:border-transparent rounded"><a href="{{route('login')}}">Login</a></button>      
           </li>
           <li class="inline-block items-center mr-4 lg:hidden">
           
@@ -85,7 +85,6 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
   <script src="{{ URL::asset('js/app.js') }}"></script>
-  
-</body>
-
-</html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.7.1/cdn.js"></script>
+  </body>
+  </html>
