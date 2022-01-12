@@ -34,10 +34,12 @@
           
         </ul>
       </nav>
+      <!-- Gate to check for logged in user -->
+      @cannot('logged-in')
       <nav class="font-title flex items-center px-2">
         <ul class="text-lg">
           <li class="inline-block items-center mr-4 text-faded">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-search text-purple fill-purple" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
           </svg>
           </li>
@@ -61,7 +63,55 @@
           
         </ul>
       </nav>
-      <nav id="menu-items" class="hidden font-title w-full md:w-auto hidden lg:hidden px-2">
+      @endcannot
+      <!-- Gate to check for lgged in user -->
+      @can('logged-in')
+      <nav class="font-title flex items-center px-2">
+        <ul class="text-lg">
+          <li class="inline-block items-center mr-4 text-faded">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-search text-purple fill-purple" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+          </li>
+          <li class="inline-block items-center mr-4 text-faded text-purple">
+          <a href="{{route('dashboard')}}">
+          <i class="fa fa-user " aria-hidden="true"></i>
+        </a>
+          </li>
+          <li class="inline-block items-center mr-4 text-faded text-purple">
+          <i class="fa fa-heart fill-purple" aria-hidden="true"></i>
+          </li>
+          <li class="inline-block items-center mr-4 text-faded text-purple">
+          <i class="fa fa-shopping-cart fill-purple" aria-hidden="true"></i>
+          </li>      
+          <li class="inline-block items-center mr-4">
+          <form method="POST" action="{{ route('logout') }}">
+                @csrf
+
+                <button type="submit" class="bg-transparent hover:bg-purple text-purple font-semibold hover:text-white py-2 px-4 border-2 border-purple hover:border-transparent rounded">Logout</button>      
+              </form>
+            
+          </li>
+          <li class="inline-block items-center mr-4 lg:hidden">
+          
+          <button id="menu-open" class="rounded bg-sec text-purple hover:bg-purple hover:text-white border-2 border-purple px-4 py-2 transistion">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-10" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+        </svg>     
+        </button>
+        <button id="menu-close" class="hidden rounded bg-sec text-purple hover:bg-purple hover:text-white border-2 border-purple px-4 py-2 transistion">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>           
+        </button>
+          </li>
+          
+          
+        </ul>
+      </nav>
+      @endcan
+      
+      <nav id="menu-items" class="bg-purple font-semi-bold hidden font-title w-full md:w-full hidden lg:hidden px-10 text-white z-50">
         <ul class="text-lg">
           <li class="mb-3 md:mb-0 block md:inline-block items-center mr-6">
             Home
@@ -85,6 +135,8 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
   <script src="{{ URL::asset('js/app.js') }}"></script>
+  
+  <script src="{{ URL::asset('js/nav.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.7.1/cdn.js"></script>
   </body>
   </html>

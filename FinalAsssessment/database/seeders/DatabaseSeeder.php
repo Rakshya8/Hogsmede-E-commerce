@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\GameProduct;
+use App\Models\Product;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +20,8 @@ class DatabaseSeeder extends Seeder
         //To run multiple seeder at once
         $this->call(UserSeeder::class);
         $this->call(RoleSeeder::class);
-        // $this->call(RoleUserSeeder::class);
+        $this->call(RoleUserSeeder::class);
+        $this->call(ProductSeeder::class);
+        $this->call(BookProductSeeder::class);
     }
 }

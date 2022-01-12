@@ -47,6 +47,7 @@
                     {{ __('Log in') }}
                 </x-jet-button>
             </div>
+            @include('flash-message')
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>

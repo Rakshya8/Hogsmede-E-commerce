@@ -19,6 +19,7 @@
      protected function client(){
         $mailchimp = new ApiClient();
 
+        ///Get and return api and list id from env file
         return $mailchimp->setConfig([
             'apiKey' => config('services.mailchimp.key'),
             'server' => 'us20'

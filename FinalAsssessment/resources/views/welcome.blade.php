@@ -47,16 +47,17 @@
 <div class="hidden md:flex mb-2 md:mb:0 md:mt-0 mt-10 w-full md:w-1/4 bg-gray-400 p-8 text-center text-gray-700">
   2
   </div>
+  
+
   <div class="w-full md:w-3/4 h-96">
     <h1 class="decoration-purple mt-4 flex uppercase font-bold text-3xl justify-center items-center hover:underline decoration-wavy">Books</h1>
-  <div class="responsive ml-10">
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThNfYEf7Fm3_UpCQr8HHWOIG3YKMnCOSdf6Q&usqp=CAU"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
+  <div class="responsive ml-10" id="multi">
+  @foreach($product as $products)
+  <div class="text-center"><img style="height:200px" class="px-5 h-full mt-10" src="{{$products->image}}">
+  <h3>{{$products->name}}</h3>
+  <h4 class="font-semibold">£ {{$products->price}}</h4>
+</div>
+@endforeach
 </div>
   </div>
   
@@ -66,20 +67,14 @@
 <div class="md:flex h-96 mb-20 px-8">
 
   <div class="w-full md:w-3/4 h-96">
-    <h1 class="decoration-purple mt-4 flex uppercase font-bold text-3xl justify-center items-center hover:underline decoration-wavy">Books</h1>
-  <div class="responsive mr-10">
-  <div><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg">
-  <button class="absolute bg-black text-white">Button</button>
+    <h1 class="decoration-purple mt-4 flex uppercase font-bold text-3xl justify-center items-center hover:underline decoration-wavy">Games</h1>
+  <div class="responsive mr-10" id="multi">
+  @foreach($gameproduct as $gameproducts)
+  <div class="text-center"><img style="height:200px" class="px-5 h-full mt-10" src="{{$gameproducts->image}}">
+  <h3>{{$gameproducts->name}}</h3>
+  <h4 class="font-semibold">£ {{$gameproducts->price}}</h4>
 </div>
-<div class="relative">
-  <img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg">
-  <button class="absolute" style="bottom: -30px" >Button</button>
-</div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
+@endforeach
 </div>
   </div>
   <div class="hidden mb-2 md:mb:0 md:mt-0 mt-10 md:w-full md:w-1/4 md:flex md:bg-gray-400 p-8 md:text-center md:text-gray-700 h-full">
@@ -93,19 +88,20 @@
   3
   </div>
   <div class="w-full md:w-3/4" style="height: 360px">
-    <h1 class="mt-4 flex uppercase font-bold text-3xl justify-center items-center hover:underline decoration-wavy decoration-purple">Books</h1>
-  <div class="responsive ml-10">
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThNfYEf7Fm3_UpCQr8HHWOIG3YKMnCOSdf6Q&usqp=CAU"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img style="height:200px" class="px-5 h-full mt-10" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
+    <h1 class="mt-4 flex uppercase font-bold text-3xl justify-center items-center hover:underline decoration-wavy decoration-purple">CD</h1>
+  <div class="responsive ml-10" id="multi">
+  @foreach($cdproduct as $cdproducts)
+  <div class="text-center"><img style="height:200px" class="px-5 h-full mt-10" src="{{$cdproducts->image}}">
+  <h3>{{$cdproducts->name}}</h3>
+  <h4 class="font-semibold">£ {{$cdproducts->price}}</h4>
+</div>
+@endforeach
 </div>
   </div>
   
 </div>
+
+
 
 <script>
   $('.single-item').slick({
@@ -113,7 +109,7 @@
     speed: 200,
   });
   $('.responsive').slick({
-    dots: true,
+    dots: false,
     infinite: true,
     autoplay:true,
     speed: 100,
@@ -150,7 +146,6 @@
   ]
     
   });
-
   </script>
 
 @endsection

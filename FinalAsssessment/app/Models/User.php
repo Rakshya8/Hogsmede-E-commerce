@@ -63,4 +63,34 @@ class User extends Authenticatable implements MustVerifyEmail
     public function roles(){
         return $this->belongsToMany('App\Models\Role');
     }
+    
+    //Accessor for Name to return first word in capital
+    public function getNameAttributes($name){
+        return ucwords($name);        
+    }
+
+    //Mutator for encrypting password
+    public function setPasswordAttribute($password){
+        $this->attributes['password']= bcrypt($password);
+    }
+    
+    /**
+     * Check if the user has a role
+     * @param string $role
+     * @return bool
+     */
+    public function hasAnyRole(string $role){
+        return null !==$this->roles->where ('name',$role)->first();
+    }
+
+        /**
+     * Check if the user has a given role
+     * @param array $role
+     * @return bool
+     */
+        public function hasAnyRoles(array $role){
+            return null !==$this->roles->whereIn('name',$role)->first();
+        }
+
+
 }

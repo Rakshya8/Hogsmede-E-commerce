@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <img src="{{url('\logo-nobg.png')}}" class="h-24 px-0 mt-0 w-40 self-center">
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -27,7 +27,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
+                <x-jet-button class="ml-4 bg-transparent hover:bg-purple text-purple font-semibold hover:text-white">
                     {{ __('Reset Password') }}
                 </x-jet-button>
             </div>
