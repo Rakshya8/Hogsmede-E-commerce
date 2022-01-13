@@ -65,11 +65,11 @@ Route::get('wishlist', [ProductController::class, 'wishlist'])->name('wishlist')
 
 //Different action routes for products
 Route::get('/product-view', [App\Http\Controllers\ProductController::class, 'index'])->name('Product.index');
-Route::get('/products/create', [App\Http\Controllers\ProductController::class, 'create'])->name('Product.create')->middleware(['auth','verified']);
+Route::get('/products/create', [App\Http\Controllers\ProductController::class, 'create'])->name('Product.create')->middleware(['auth','verified', 'auth.is-Trader']);
 Route::get('/products/{id}', [App\Http\Controllers\ProductController::class, 'show'])->name('Product.show');
-Route::post('/products', [App\Http\Controllers\ProductController::class, 'store'])->name('Product.store')->middleware(['auth','verified']);
-Route::get('/products/{id}/edit', [App\Http\Controllers\ProductController::class, 'edit'])->name('Product.edit')->middleware(['auth','verified']);
-Route::patch('/products/{id}', [App\Http\Controllers\ProductController::class, 'update'])->name('Product.update')->middleware(['auth','verified']);
-Route::delete('/products/{id}', [App\Http\Controllers\ProductController::class, 'destroy'])->name('Product.destroy')->middleware(['auth','verified']);
+Route::post('/products', [App\Http\Controllers\ProductController::class, 'store'])->name('Product.store')->middleware(['auth','verified','auth.is-Trader']);
+Route::get('/products/{id}/edit', [App\Http\Controllers\ProductController::class, 'edit'])->name('Product.edit')->middleware(['auth','verified','auth.is-Trader']);
+Route::patch('/products/{id}', [App\Http\Controllers\ProductController::class, 'update'])->name('Product.update')->middleware(['auth','verified','auth.is-Trader']);
+Route::delete('/products/{id}', [App\Http\Controllers\ProductController::class, 'destroy'])->name('Product.destroy')->middleware(['auth','verified','auth.is-Trader']);
 
 

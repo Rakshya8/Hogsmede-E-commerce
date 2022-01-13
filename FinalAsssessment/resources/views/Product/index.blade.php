@@ -6,7 +6,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{{ "AdminLTE Dashboard" }}</title>
+    <title>Admin</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, product-scalable=no' name='viewport'>
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <!-- Font Awesome Icons -->
@@ -46,10 +46,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
+              @can('is-Trader')
             <button class="btn" id="admin-btn">
-            <a href="{{ route('Product.create')}}" style="color:white">                
+            <a href="{{ route('Product.create')}}" style="color:blue">                
                 <i class="fa fa-plus" aria-hidden="true"></i> Add product</button>
             </a>
+            @endcan
             </ol>
           </div>
         </div>

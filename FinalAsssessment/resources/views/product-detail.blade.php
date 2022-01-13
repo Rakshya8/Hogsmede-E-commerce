@@ -52,6 +52,7 @@
           </span>
         </div>
         <p class="leading-relaxed">{{$product->description}}</p>
+        @cannot('is-Admin', 'is-Trader')
         <div class="flex">
           <span class="title-font font-medium text-2xl text-gray-900 mr-20">${{$product->price}}</span>
           <a href="{{route('addcart',['id'=>$product->id])}}">
@@ -64,6 +65,7 @@
           </button>
         </a>
         </div>
+        @endcannot
       </div>
     </div>
   </div>

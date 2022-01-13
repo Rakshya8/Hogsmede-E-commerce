@@ -4,8 +4,8 @@
 <div class="single-item">
 
   
-  <div><h3><img class="w-full" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
-  <div><h3><img class="w-full" src="https://image.shutterstock.com/image-vector/vector-banner-design-circuit-board-260nw-1233925105.jpg"></h3></div>
+  <div><h3><img class="w-full" src="{{url('\banner1.png')}}"></h3></div>
+  <div><h3><img class="w-full" src="{{url('\banner-2.png')}}"></h3></div>
 </div>
 <div class="px-5 mb-20 mt-20">
   <div class="md:flex px-10 md:space-x-10">
@@ -24,7 +24,7 @@
     <div class="flex justify-center items-center border-solid border-8 border-white mt-6 ml-6 mr-6 border-opacity-50 invisible group-hover:visible group-hover:scale-100 ease-in-out duration:1000 transform mb-8">  
     <div class="text-black font-bold text-xl flex justify-center items-center mt-14 mb-8 visible group-hover:scale-100">
         
-      <h1 class="bg-white p-3">Books</h1>
+      <h1 class="bg-white p-3">Games</h1>
       </div>
         
       </div>
@@ -35,7 +35,7 @@
     <div class="flex justify-center items-center border-solid border-8 border-white mt-6 ml-6 mr-6 border-opacity-50 invisible group-hover:visible group-hover:scale-100 ease-in-out duration:1000 transform mb-8">  
     <div class="text-black font-bold text-xl flex justify-center items-center mt-14 mb-8 visible group-hover:scale-100">
         
-      <h1 class="bg-white p-3">Books</h1>
+      <h1 class="bg-white p-3">CDs</h1>
       </div>
         
       </div>
@@ -44,8 +44,8 @@
 </div>
 
 <div class="md:flex h-96 mb-20 px-8">
-<div class="hidden md:flex mb-2 md:mb:0 md:mt-0 mt-10 w-full md:w-1/4 bg-gray-400 p-8 text-center text-gray-700">
-  2
+<div class="hidden md:flex mb-2 md:mb:0 md:mt-0 mt-10 w-full md:w-1/4 p-8 text-center">
+  <img src="{{url('\book-cover.jpg')}}" class="w-full h-full">
   </div>
   
 
@@ -62,7 +62,9 @@
   </div>
   
 </div>
-<div class="h-96 mb-20 px-8 bg-pink ml-20 mr-20">
+<div class="h-96 mb-20 px-8 ml-20 mr-20">
+<img src="{{url('\banner-3.png')}}" class="w-full h-full">
+  
 </div>
 <div class="md:flex h-96 mb-20 px-8">
 
@@ -77,15 +79,15 @@
 @endforeach
 </div>
   </div>
-  <div class="hidden mb-2 md:mb:0 md:mt-0 mt-10 md:w-full md:w-1/4 md:flex md:bg-gray-400 p-8 md:text-center md:text-gray-700 h-full">
-  1
+  <div class="hidden mb-2 md:mb:0 md:mt-0 mt-10 md:w-full md:w-1/4 md:flex p-8 md:text-center md:text-gray-700 h-full">
+  <img src="{{url('\game-cover.jpg')}}" class="w-full h-full">
   </div>
 </div>
 <div class="h-96 mb-20 bg-[url('https://image.shutterstock.com/image-vector/2022-happy-new-year-banner-260nw-1923111599.jpg')] overflow-hidden shadow-lg bg-no-repeat bg-cover ml-20 mr-20">
 </div>
 <div class="md:flex h-96 md:mb-20 mb-10 px-8">
-<div class="hidden md:flex mb-2 md:mb:0 md:mt-0 mt-10 w-full md:w-1/4 bg-gray-400 p-8 text-center text-gray-700">
-  3
+<div class="hidden md:flex mb-2 md:mb:0 md:mt-0 mt-10 w-full md:w-1/4 p-8 text-center text-gray-700">
+<img src="{{url('\cd-cover.jpg')}}" class="w-full h-full">
   </div>
   <div class="w-full md:w-3/4" style="height: 360px">
     <h1 class="mt-4 flex uppercase font-bold text-3xl justify-center items-center hover:underline decoration-wavy decoration-purple">CD</h1>

@@ -47,7 +47,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
             <button class="btn" id="admin-btn">
-            <a href="{{ route('admin.users.create')}}" style="color:white">                
+            <a href="{{ route('admin.users.create')}}" style="color:blue">                
                 <i class="fa fa-plus" aria-hidden="true"></i> Add User</button>
             </a>
             </ol>
@@ -74,7 +74,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <th>#</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Role</th>
+                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -85,7 +85,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <td>{{ $user->id}}</td>                    
                     <td>{{$user -> name}}</td>
                     <td> {{$user -> email}}</td>
-                    <td>X
+                    <td>
                     <a href="{{ route('admin.users.edit', $user->id)}}" style="color:black"><i class="fa fa-pencil-square-o" style="float:right; margin-left:8px" aria-hidden="true"></a></i>
                     <a href="javascript:{}" style="color:black" onclick="document.getElementById('delete-user-form-{{$user->id}}').submit()"><i class="fa fa-trash" style="float:right" aria-hidden="true"></i></a>
                     <form id="delete-user-form-{{$user->id}}" action  ="{{route('admin.users.destroy',$user->id)}}" method="POST" style="display:none">
@@ -102,7 +102,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <th>#</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Role</th>
+                    <th>Action</th>
                   </tr>
                   </tfoot>
                 </table>

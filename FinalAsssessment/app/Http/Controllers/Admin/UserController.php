@@ -69,7 +69,7 @@ class UserController extends Controller
             dd($exception);
             // session()->flash('failure','User could not be created');
 
-            //session()->flash('failure','This email could not be added to our list');
+            session()->flash('failure','This email could not be added to our list');
     
         }
         return redirect(route('admin.users.index'));

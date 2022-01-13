@@ -55,23 +55,34 @@ class ProductController extends Controller
         ]);
 
 
-        $product = Product::create([
-            "category" => $request->category,
-            "first_name" => $request->first_name,
-            "last_name" => $request->last_name,
-            "name" => $request->name,
-            "price" => $request->price,
-            "image"=> $request->image,
-            "description"=>$request->description,
-        ]);
+        try{
+            $product = Product::create([
+                "category" => $request->category,
+                "first_name" => $request->first_name,
+                "last_name" => $request->last_name,
+                "name" => $request->name,
+                "price" => $request->price,
+                "image"=> $request->image,
+                "description"=>$request->description,
+            ]);
+    
+            if ($request->category === 'cd') {
+                CDProduct::create(["product_id" => $product->id, "play_length" => $request->uniqueField]);
+            } else if ($request->category === 'book') {
+                BookProduct::create(["product_id" => $product->id, "pages" => $request->uniqueField]);
+            } else if ($request->category === 'game') {
+                GameProduct::create(["product_id" => $product->id, "rating" => $request->uniqueField]);
+            }
+            session()->flash('success','The product has been created');
 
-        if ($request->category === 'cd') {
-            CDProduct::create(["product_id" => $product->id, "play_length" => $request->uniqueField]);
-        } else if ($request->category === 'book') {
-            BookProduct::create(["product_id" => $product->id, "pages" => $request->uniqueField]);
-        } else if ($request->category === 'game') {
-            GameProduct::create(["product_id" => $product->id, "rating" => $request->uniqueField]);
         }
+        catch(\Exception $exception){
+            session()->flash('failure','The product has not been created');
+
+            //session()->flash('failure','This email could not be added to our list');
+    
+        }
+
 
         return redirect(route('Product.index'))->with('success', 'Product Store Sucessfully');
     }
@@ -160,6 +171,20 @@ class ProductController extends Controller
                 "image"=> $request->image,
                 "description"=>$request->description,
             ]);
+            switch ($product->category) {
+                case 'cd':
+                    CdProduct::where('product_id', $product->id)->first()
+                        ->update(["play_length" => $request->uniqueField]);
+                    break;
+                case 'book':
+                    BookProduct::where('product_id', $product->id)->first()
+                        ->update(["pages" => $request->uniqueField]);
+                    break;
+                case 'game':
+                    GameProduct::where('product_id', $product->id)->first()
+                        ->update(["rating" => $request->uniqueField]);
+                    break;
+            }
             session()->flash('success','The product has been updated successfully');
         }
         catch(\Exception $exception){
@@ -168,22 +193,10 @@ class ProductController extends Controller
             session()->flash('failure','This product could not be updated');
     
         }
+        return redirect(route('admin.users.index'));
         
 
-        switch ($product->category) {
-            case 'cd':
-                CdProduct::where('product_id', $product->id)->first()
-                    ->update(["play_length" => $request->uniqueField]);
-                break;
-            case 'book':
-                BookProduct::where('product_id', $product->id)->first()
-                    ->update(["pages" => $request->uniqueField]);
-                break;
-            case 'game':
-                GameProduct::where('product_id', $product->id)->first()
-                    ->update(["rating" => $request->uniqueField]);
-                break;
-        }
+        
 
         return redirect()->back()->with('success', 'Product Updated Sucessfully');
     }
@@ -199,11 +212,11 @@ class ProductController extends Controller
         try{
             Product::destroy($id);
             
-            session()->flash('success','The user has been deleted');
+            session()->flash('success','The product has been deleted');
             
         }
         catch(\Exception $exception){
-            session()->flash('failure','The user could not be deleted');
+            session()->flash('failure','The product could not be deleted');
 
             //session()->flash('failure','This email could not be added to our list');
     

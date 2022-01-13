@@ -47,7 +47,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
             <button class="btn" id="admin-btn-back">
-            <a href="{{ url()->previous() }}" style="color:white">                
+            <a href="{{ url()->previous() }}" style="color:red">                
             <i class="fas fa-times" aria-hidden="true" style="margin-right:5px"></i> Cancel</button>
             </a>
             </ol>

@@ -24,7 +24,7 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-        //Define gates
+        //Define gates to check login/role of user
         Gate::define('logged-in', function ($user){
             return $user;
         });
@@ -35,6 +35,21 @@ class AuthServiceProvider extends ServiceProvider
              * return $user->hasAnyRole(['admin','trader]);
              */
         });
+        
+        Gate::define('is-Trader', function ($user){
+            return $user->hasAnyRole('Trader');
+            /**
+             * return $user->hasAnyRole(['admin','trader]);
+             */
+        });
+
+        Gate::define('is-User', function ($user){
+            return $user->hasAnyRole('User');
+            /**
+             * return $user->hasAnyRole(['admin','trader]);
+             */
+        });
+        
 
         //
     }
