@@ -22,10 +22,14 @@
       <nav class="font-title w-full md:w-auto hidden space-x-8 lg:flex px-2">
         <ul class="text-lg">
           <li class="mb-3 md:mb-0 block md:inline-block items-center mr-6">
+          <a href="{{route('home')}}">
             Home
+          </a>
           </li>
+          <a href="{{route('search')}}">
           <li class="mb-3 md:mb-0 block md:inline-block items-center mr-6">
             Shop
+          </a>
           </li>
           <li class="mb-3 md:mb-0 block md:inline-block items-center mr-6">
             About
@@ -39,9 +43,11 @@
       <nav class="font-title flex items-center px-2">
         <ul class="text-lg">
           <li class="inline-block items-center mr-4 text-faded">
+            <a href="{{route('search')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-search text-purple fill-purple" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
           </svg>
+        </a>
           </li>
           <li class="inline-block items-center mr-4">
             <button class="bg-transparent hover:bg-purple text-purple font-semibold hover:text-white py-2 px-4 border-2 border-purple hover:border-transparent rounded"><a href="{{route('login')}}">Login</a></button>      

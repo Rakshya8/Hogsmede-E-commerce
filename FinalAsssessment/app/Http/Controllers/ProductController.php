@@ -9,6 +9,8 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\CDProduct;
 use App\Models\GameProduct;
 use App\Models\BookProduct;
+use Session;
+use App\Cart;
 
 class ProductController extends Controller
 {
@@ -78,8 +80,9 @@ class ProductController extends Controller
      * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
+        $product=Product::find($id); 
         $uniqueFieldValue = "";
         switch ($product->category) {
             case 'cd':
@@ -118,11 +121,11 @@ class ProductController extends Controller
                 break;
             case 'book':
                 $cardHeader = "Edit Book details";
-                $uniqueFieldValue = BookProduct::where('product_id', $product->id->first()->pages);
+                $uniqueFieldValue = BookProduct::where('product_id', $id)->first()->pages;
                 break;
             case 'game':
                 $cardHeader = "Edit Game details";
-                $uniqueFieldValue = GameProduct::where('product_id', $product->id->first()->rating);
+                $uniqueFieldValue = GameProduct::where('product_id', $id)->first()->rating;
                 break;
         }
         return view('Product.edit', ["pageTitle" => "Shop Products | Edit Product", "cardHeader" => $cardHeader, "product" => $product::find($id), "uniqueFieldValue" => $uniqueFieldValue]);
@@ -203,5 +206,99 @@ class ProductController extends Controller
         }
         return redirect(route('Product.index'));
     }
-    
+
+    /**
+     * Display the specified resource.
+     *
+     * @param \App\Models\Product $product
+     * @return \Illuminate\Http\Response
+     */
+    public function detail($id)
+    {
+        $product=Product::findOrFail($id); 
+        $uniqueFieldValue = "";
+        switch ($product->category) {
+            case 'cd':
+                $uniqueFieldValue = CDProduct::where('product_id', $id)->first()->play_length;
+                break;
+            case 'book':
+                $uniqueFieldValue = BookProduct::where('product_id', $id)->first()->pages;
+                break;
+            case 'game':
+                $cardHeader = "Edit Game details";
+                $uniqueFieldValue = GameProduct::where('product_id', $id)->first()->rating;
+                break;
+        }
+
+        return view('product-detail', ['product' => $product, 'uniqueFieldValue' => $uniqueFieldValue]);
+    }
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function cart()
+    {
+        return view('cart');
+    }
+  
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function addToCart($id)
+    {
+        $product = Product::findOrFail($id);
+          
+        $cart = session()->get('cart', []);
+  
+        if(isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "name" => $product->name,
+                "quantity" => 1,
+                "price" => $product->price,
+                "image" => $product->image
+            ];
+        }
+          
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
+    }
+  
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function updatecart(Request $request)
+    {
+        if($request->id && $request->quantity){
+            $cart = session()->get('cart');
+            $cart[$request->id]["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('success', 'Cart updated successfully');
+        }
+    }
+  
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function remove(Request $request)
+    {
+        if($request->id) {
+            $cart = session()->get('cart');
+            if(isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Product removed successfully');
+        }
+    }
 }
+
+    

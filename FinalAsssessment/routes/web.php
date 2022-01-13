@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ProductController;
 use App\Models\Product;
 
 
@@ -35,8 +36,11 @@ Route::get('/admin', function () {
     return view('admin/login');
 })->name('admin-login');
 
-//Loading deafult search view for admin
+//Loading deafult search view for users
 Route::get('/search',[SearchController::class, 'index'])->name('search');
+
+//Route to product detail page
+Route::get('/product-detail/{id}',[App\Http\Controllers\ProductController::class, 'detail'])->name('Product-detail');
 
 //Routing logged in user to dashboard made by Jetstream
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -48,6 +52,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::prefix('admin')->middleware(['auth','auth.isAdmin', 'verified'])->name('admin.')->group(function(){
     Route::resource('/users',UserController::class);
 });
+
+//Route to cart
+Route::get('/cart/{id}',[App\Http\Controllers\ProductController::class, 'addToCart'])->name('cart');
+Route::get('cart', [ProductController::class, 'cart'])->name('cart')->middleware(['auth','verified']);
+Route::patch('update-cart', [ProductController::class, 'updateCart'])->name('update.cart');
+Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
 
 //Different action routes for products
 Route::get('/product-view', [App\Http\Controllers\ProductController::class, 'index'])->name('Product.index');
