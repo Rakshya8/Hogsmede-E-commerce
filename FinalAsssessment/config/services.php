@@ -35,6 +35,9 @@ return [
             'subscribers'=>env('MAILCHIMP_LIST_SUBSCRIBERS')
         ],
 
-    ]
+    ],
+    'stripe' => [
+        'secret' => env('STRIPE_SECRET'),
+    ],
 
 ];

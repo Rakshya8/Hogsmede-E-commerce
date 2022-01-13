@@ -5,6 +5,7 @@ use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StripeController;
 use App\Models\Product;
 
 
@@ -72,4 +73,6 @@ Route::get('/products/{id}/edit', [App\Http\Controllers\ProductController::class
 Route::patch('/products/{id}', [App\Http\Controllers\ProductController::class, 'update'])->name('Product.update')->middleware(['auth','verified','auth.is-Trader']);
 Route::delete('/products/{id}', [App\Http\Controllers\ProductController::class, 'destroy'])->name('Product.destroy')->middleware(['auth','verified','auth.is-Trader']);
 
-
+//Stripe routes
+Route::get('/stripe', [StripeController::class, 'stripe']);
+Route::post('/stripe', [StripeController::class, 'stripePost'])->name('stripe.post');
