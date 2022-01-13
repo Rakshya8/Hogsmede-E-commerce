@@ -54,13 +54,13 @@ Route::prefix('admin')->middleware(['auth','auth.isAdmin', 'verified'])->name('a
 });
 
 //Route to cart
-Route::get('/cart/{id}',[App\Http\Controllers\ProductController::class, 'addToCart'])->name('cart');
+Route::get('/cart/{id}',[App\Http\Controllers\ProductController::class, 'addToCart'])->name('addcart');
 Route::get('cart', [ProductController::class, 'cart'])->name('cart')->middleware(['auth','verified']);
 Route::patch('update-cart', [ProductController::class, 'updateCart'])->name('update.cart');
 Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
 
 //Route for wishlist
-Route::get('/wishlist/{id}',[App\Http\Controllers\ProductController::class, 'addToWishlist'])->name('wishlist');
+Route::get('/wishlist/{id}',[App\Http\Controllers\ProductController::class, 'addToWishlist'])->name('addwishlist');
 Route::get('wishlist', [ProductController::class, 'wishlist'])->name('wishlist')->middleware(['auth','verified']);
 
 //Different action routes for products

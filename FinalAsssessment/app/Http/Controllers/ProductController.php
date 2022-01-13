@@ -302,7 +302,7 @@ class ProductController extends Controller
         }
           
         session()->put('wishlist', $wishlist);
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        return redirect()->back()->with('success', 'Product added to wishlist successfully!');
     }
   
     /**
