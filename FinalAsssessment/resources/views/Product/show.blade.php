@@ -3,6 +3,7 @@
 <title>@yield('pageTitle')</title>
 
 @section('content')
+
     <div class="container p-2">
         <div class="row justify-content-center">
             <div class="col-md-6">

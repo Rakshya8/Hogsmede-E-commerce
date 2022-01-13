@@ -23,7 +23,7 @@ class ProductController extends Controller
     {
         return view(
             'Product.index',
-            ['pageTitle' => 'Shop Products | Home', 'products' => Product::simplePaginate(12)]
+            ['pageTitle' => 'Shop Products | Home', 'products' => Product::all()]
         );
     }
 
@@ -60,7 +60,9 @@ class ProductController extends Controller
             "first_name" => $request->first_name,
             "last_name" => $request->last_name,
             "name" => $request->name,
-            "price" => $request->price
+            "price" => $request->price,
+            "image"=> $request->image,
+            "description"=>$request->description,
         ]);
 
         if ($request->category === 'cd') {
@@ -154,7 +156,9 @@ class ProductController extends Controller
                 "name" => $request->name,
                 "first_name" => $request->first_name,
                 "main_name" => $request->main_name,
-                "price" => $request->price
+                "price" => $request->price,
+                "image"=> $request->image,
+                "description"=>$request->description,
             ]);
             session()->flash('success','The product has been updated successfully');
         }
