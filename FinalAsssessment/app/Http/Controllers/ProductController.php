@@ -233,7 +233,7 @@ class ProductController extends Controller
         return view('product-detail', ['product' => $product, 'uniqueFieldValue' => $uniqueFieldValue]);
     }
     /**
-     * Write code on Method
+     * View Cart
      *
      * @return response()
      */
@@ -241,9 +241,20 @@ class ProductController extends Controller
     {
         return view('cart');
     }
+
+    /**
+     * View Wishlist
+     *
+     * @return response()
+     */
+    public function wishlist()
+    {
+        return view('wishlist');
+    }
   
     /**
-     * Write code on Method
+     * Add To Cart
+     * @param product id
      *
      * @return response()
      */
@@ -267,9 +278,36 @@ class ProductController extends Controller
         session()->put('cart', $cart);
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
+  /**
+     * Add To Wishlist
+     * @param product id
+     *
+     * @return response()
+     */
+    public function addToWishlist($id)
+    {
+        $product = Product::findOrFail($id);
+          
+        $wishlist = session()->get('wishlist', []);
+  
+        if(isset($wishlist[$id])) {
+            $wishlist[$id]['quantity']++;
+        } else {
+            $wishlist[$id] = [
+                "name" => $product->name,
+                "quantity" => 1,
+                "price" => $product->price,
+                "image" => $product->image
+            ];
+        }
+          
+        session()->put('wishlist', $wishlist);
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
+    }
   
     /**
-     * Write code on Method
+     * Update Cart
+     * @param request
      *
      * @return response()
      */
@@ -284,8 +322,8 @@ class ProductController extends Controller
     }
   
     /**
-     * Write code on Method
-     *
+     * Remove from cart
+     * @param product id
      * @return response()
      */
     public function remove(Request $request)

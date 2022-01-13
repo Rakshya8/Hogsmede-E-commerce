@@ -59,6 +59,10 @@ Route::get('cart', [ProductController::class, 'cart'])->name('cart')->middleware
 Route::patch('update-cart', [ProductController::class, 'updateCart'])->name('update.cart');
 Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
 
+//Route for wishlist
+Route::get('/wishlist/{id}',[App\Http\Controllers\ProductController::class, 'addToWishlist'])->name('wishlist');
+Route::get('wishlist', [ProductController::class, 'wishlist'])->name('wishlist')->middleware(['auth','verified']);
+
 //Different action routes for products
 Route::get('/product-view', [App\Http\Controllers\ProductController::class, 'index'])->name('Product.index');
 Route::get('/products/create', [App\Http\Controllers\ProductController::class, 'create'])->name('Product.create')->middleware(['auth','verified']);

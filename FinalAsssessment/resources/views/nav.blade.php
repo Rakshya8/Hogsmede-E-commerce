@@ -84,11 +84,15 @@
           <i class="fa fa-user " aria-hidden="true"></i>
         </a>
           </li>
+          <a href="{{route('wishlist')}}">
           <li class="inline-block items-center mr-4 text-faded text-purple">
           <i class="fa fa-heart fill-purple" aria-hidden="true"></i>
+        </a>
           </li>
           <li class="inline-block items-center mr-4 text-faded text-purple">
+          <a href="{{route('cart')}}">
           <i class="fa fa-shopping-cart fill-purple" aria-hidden="true"></i>
+        </a>
           </li>      
           <li class="inline-block items-center mr-4">
           <form method="POST" action="{{ route('logout') }}">
